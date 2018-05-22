@@ -1,0 +1,74 @@
+package scenario.behaviours;
+
+import jade.core.behaviours.Behaviour;
+
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Vector;
+
+//import com.hp.hpl.jena.sparql.function.library.namespace;
+import com.vividsolutions.jts.geom.Coordinate;
+
+import masp.simulacrum.MaspAgent;
+import masp.simulacrum.MaspSimulationBehaviour;
+import masp.simulacrum.Spatial2Dstate;
+import masp.support.PropertiesLoaderImpl;
+
+public class Sonar1 extends MaspSimulationBehaviour {
+
+	static long startTime;
+	MaspAgent a;
+
+	public Sonar1(MaspAgent a) {
+		super(a);
+		this.a = a;
+		// TODO Auto-generated constructor stub
+	}
+
+	public void onStart() {
+		if (PropertiesLoaderImpl.DEBUG)
+			System.out.println(this.getBehaviourName()
+					+ " -> NOME DO BEHAVIOUR CARREGADO para o agente "
+					+ myAgent.getLocalName());
+		startTime = System.currentTimeMillis();
+	}
+
+	@Override
+	protected void onTick() {
+		//System.out.println(a.getLocalName() + " " + this + "still alive !!!!");
+		//System.out.println(this);
+		double firedistance = 10.1;
+		
+		//System.out.println(a.getLocalName() + " " +this+ " " + this.simulatedTimePeriod + " this.simulatedTimePeriod");
+		
+		Hashtable<String, Coordinate> targets = a.virtualSpaceMirror
+				.targetsAtDistance(11.0, a.spatial2Dstate.getCoordinate());
+		Enumeration<String> nomestargets = targets.keys();
+		while (nomestargets.hasMoreElements()) {
+			String thisTarget = nomestargets.nextElement();
+			if (a.spatial2Dstate.getCoordinate().distance(
+					targets.get(thisTarget)) < firedistance) {
+				
+			//	a.addBehaviour((Behaviour) new TP3(a, thisTarget));
+				//System.out
+				//.println(" XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+				
+				//System.out.println(a.getLocalName()
+				//		+ " firing  at "
+				//		+ thisTarget
+				//		+ " at distance "
+				//		+ a.spatial2Dstate.getCoordinate().distance(
+				//				targets.get(thisTarget)) + " meters");
+				//System.out
+				//.println(" XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+			} else {
+				//System.out
+				//.println("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ\n"
+				//	System.out.println(	 a.getLocalName() + " sem alvos");
+				//		+ " sem alvos\nZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ");
+			}
+
+		}
+
+	}
+}

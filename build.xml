@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project masp2 with Jar-in-Jar Loader">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="/trabalho/Dev/workspace/masp2/masp2.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+                <attribute name="Rsrc-Main-Class" value="masp.nursery.Starter"/>
+                <attribute name="Class-Path" value="."/>
+                <attribute name="Rsrc-Class-Path" value="./ junit.jar org.hamcrest.core_1.1.0.v20090501071000.jar commons-codec-1.3.jar jade.jar jts-1.8.jar postgresql-8.2-505.jdbc4.jar postgis.jar jena-2.6.2.jar arq-2.8.1.jar icu4j-3.4.4.jar iri-0.7.jar lucene-core-2.3.1.jar slf4j-api-1.5.6.jar slf4j-log4j12-1.5.6.jar stax-api-1.0.1.jar wstx-asl-3.2.9.jar xercesImpl-2.7.1.jar log4j-1.2.16.jar"/>
+            </manifest>
+            <zipfileset src="jar-in-jar-loader.zip"/>
+            <fileset dir="/trabalho/Dev/workspace/masp2/bin"/>
+            <zipfileset dir="/trabalho/Dev/bin/eclipse/plugins/org.junit_4.8.2.v4_8_2_v20110321-1705" includes="junit.jar"/>
+            <zipfileset dir="/trabalho/Dev/bin/eclipse/plugins" includes="org.hamcrest.core_1.1.0.v20090501071000.jar"/>
+            <zipfileset dir="/trabalho/Dev/workspace/masp2/lib/jade-4.1/commons-codec" includes="commons-codec-1.3.jar"/>
+            <zipfileset dir="/trabalho/Dev/workspace/masp2/lib/jade-4.1" includes="jade.jar"/>
+            <zipfileset dir="/trabalho/Dev/workspace/masp2/lib/jts-1.8" includes="jts-1.8.jar"/>
+            <zipfileset dir="/trabalho/Dev/workspace/masp2/lib/postgis" includes="postgresql-8.2-505.jdbc4.jar"/>
+            <zipfileset dir="/trabalho/Dev/workspace/masp2/lib/postgis" includes="postgis.jar"/>
+            <zipfileset dir="/trabalho/Dev/workspace/masp2/lib/Jena-2.6.2" includes="jena-2.6.2.jar"/>
+            <zipfileset dir="/trabalho/Dev/workspace/masp2/lib/Jena-2.6.2" includes="arq-2.8.1.jar"/>
+            <zipfileset dir="/trabalho/Dev/workspace/masp2/lib/Jena-2.6.2" includes="icu4j-3.4.4.jar"/>
+            <zipfileset dir="/trabalho/Dev/workspace/masp2/lib/Jena-2.6.2" includes="iri-0.7.jar"/>
+            <zipfileset dir="/trabalho/Dev/workspace/masp2/lib/Jena-2.6.2" includes="lucene-core-2.3.1.jar"/>
+            <zipfileset dir="/trabalho/Dev/workspace/masp2/lib/Jena-2.6.2" includes="slf4j-api-1.5.6.jar"/>
+            <zipfileset dir="/trabalho/Dev/workspace/masp2/lib/Jena-2.6.2" includes="slf4j-log4j12-1.5.6.jar"/>
+            <zipfileset dir="/trabalho/Dev/workspace/masp2/lib/Jena-2.6.2" includes="stax-api-1.0.1.jar"/>
+            <zipfileset dir="/trabalho/Dev/workspace/masp2/lib/Jena-2.6.2" includes="wstx-asl-3.2.9.jar"/>
+            <zipfileset dir="/trabalho/Dev/workspace/masp2/lib/Jena-2.6.2" includes="xercesImpl-2.7.1.jar"/>
+            <zipfileset dir="/trabalho/Dev/workspace/masp2/lib/log4j" includes="log4j-1.2.16.jar"/>
+        </jar>
+    </target>
+</project>
